@@ -1,0 +1,1596 @@
+/* styles.css */
+
+.focused {
+  outline: 8px solid #ffffff;
+  transition: outline 0.3s ease;
+}
+
+
+html, body {
+    overflow: hidden;
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+  }
+  
+  #app-wrapper {
+    position: absolute;
+    top: 0px; /* 원래 위치 맞게 조절 */
+    left: 10px;
+    width: 100%; /* 실제 내부는 transform으로 크기 줄임 */
+    transform-origin: top left;
+    transform: scale(0.4);
+    display: grid;
+  grid-template-areas:
+    'header header header'
+    'sidenav recent keyboard'
+    'sidenav thumbnails thumbnails';
+  grid-template-columns: 80px 300px 1fr;
+  grid-template-rows: 80px auto 1fr;
+  gap: 10px;
+  padding: 10px;
+      }
+
+  body {
+    background-color: #111;
+    color: #ddd;
+    font-family: 'Arial', sans-serif;
+  }
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+}
+
+#transcript {
+    font-size: 40pt;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    font-weight: bold;
+    
+  }
+  
+  .final {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .interim {
+    color: rgb(218, 218, 218);
+    font-weight: bold;
+  }
+
+
+  .hidden {
+    display: none;
+  }
+  
+
+  .slider-wrapper {
+  width: 100%; /* 또는 원하는 크기 */
+  position: relative;
+   z-index: -10;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.3s ease;
+  will-change: transform;
+  font-size: 15pt;
+    color: #111;
+}
+
+/* 에러박스(팝업창 수정부분) */
+
+  #errorBox {
+  position: absolute;
+  right: -2140px;
+  top: 320px;
+  width: 920px;
+  height: 1800px;
+  padding: 32px;
+  background-color: #212121;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  color: white;
+  font-family: 'Arial', sans-serif;
+  z-index: 100;
+}
+
+#errorBox .box1 { /* (수정된 검색어)로 검색하시겠습니까? */
+  font-size: 45pt;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+#errorBox .box2 {/* 이 창을 닫으려면 리모컨의 0을 눌러주세요 */
+  font-size: 25pt;
+  color: #929292;
+  margin-bottom: 65px;
+}
+
+#errorBox .box3 { /* 검색 전환하기 버튼 */
+  width: 100%;
+  height: 100px;
+  border-radius: 50px;
+  background-color: #5f5f5f;
+  color: white;
+  font-size: 30pt;
+  text-align: center;
+  line-height: 100px; /* 버튼 속 글자 높낮이 위치 조정 */
+  cursor: pointer;
+  margin-bottom: 60px;
+  transition: background 0.2s ease;
+}
+#errorBox .box3:hover {
+  background-color: #555;
+}
+
+#errorBox .box4 { /* 검색결과 미리보기 텍스트 */
+  font-size: 25pt;
+  margin-bottom: 20px;
+  font-weight:lighter;
+  color: #929292;
+}
+
+/* 영상 카드 스타일 */
+#errorBox .video-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  
+}
+
+.video-thumbnail { /* 썸네일 크기 스타일 */
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+}
+
+.video-info {
+  padding: 16px;
+}
+
+.video-title {
+  font-size: 25pt;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.video-channel {
+  font-size: 20pt;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.video-stats {
+  font-size: 20pt;
+  color: #aaa;
+}
+
+.video-time1{
+width: 120px; 
+    height: 70px; 
+    left: 740px; 
+    top: 790px; 
+    position: absolute; 
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(17,17,17,0.7);
+  color: white; 
+  font-size: 25pt;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+
+.video-time2{
+width: 120px; 
+    height: 70px; 
+    left: 740px; 
+    top: 1400px; 
+    position: absolute; 
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(17,17,17,0.7);
+  color: white; 
+  font-size: 25pt;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+  .hidden {
+    display: none;
+  }
+
+
+.background
+{
+    width: 3840px; 
+    height: 2160px; 
+    position: relative; 
+    background: #181818; 
+    overflow: hidden
+}
+
+
+  .a
+  {
+    width: 130px; 
+    height: 130px; 
+    left: 100px; 
+    top: 145px; 
+    position: absolute; 
+    background: #D9D9D9; 
+    border-radius: 100px;
+    gap: 10px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  background-image: url('account.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  }
+
+  .b
+  {
+    width: 130px; 
+    height: 130px; 
+    left: 290px;
+    top: 145px; 
+    position: absolute; 
+    background: #ff0000; 
+    border-radius: 100px;
+    cursor: pointer;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff0000;
+  background-image: url('microphone2.png');
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+    }
+
+.focused.btn-red::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(78, 0, 0, 0.4);
+  pointer-events: none;
+  border-radius: 100px;
+    transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+.btn-red {
+  position: relative;
+}
+
+.btn-red.clicked::before {
+  display: none;
+}
+.btn-black {
+  position: relative;
+}
+
+/* 기본엔 투명, 오버레이 없음 */
+.btn-black::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: transparent; /* 기본 투명 */
+  pointer-events: none;
+  border-radius: 100px;
+  transition: background-color 0.3s ease;
+  z-index: 1;
+}
+
+/* 포커스 될 때만 오버레이 보임 */
+.btn-black.focused::before,
+.btn-black:focus::before {
+  background-color: rgba(0, 0, 0, 0.486);
+}
+
+/* 클릭시 오버레이 제거 */
+.btn-black.clicked::before {
+  display: none;
+}
+.c {
+  width: 2208px; 
+  height: 140px; 
+  left: 480px; 
+  top: 140px; 
+  position: absolute; 
+  background: #646464; 
+  border-radius: 100px;
+  transition: box-shadow 0.4s ease-in-out;
+  box-shadow: none;
+}
+
+.c.listening {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1),
+                0 0 10px rgba(255, 255, 255, 0.2),
+                0 0 15px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.6),
+                0 0 40px rgba(255, 255, 255, 0.4),
+                0 0 60px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1),
+                0 0 10px rgba(255, 255, 255, 0.2),
+                0 0 15px rgba(255, 255, 255, 0.1);
+  }
+}
+
+ .d1
+  {
+    width: 350px; 
+    height: 120px; 
+    left: 290px; 
+    top: 364px; 
+    position: absolute; 
+    background: #2F2F2F; 
+    border-radius: 80px;
+  }
+
+  .d10
+  {
+    width: 350px; 
+    height: 120px; 
+    left: 350px; 
+    top: 390px; 
+    position: absolute; 
+    font-size: 60px; 
+    color: #8A8A8A;
+  }
+
+  .d100
+  {
+    width: 350px; 
+    height: 120px; 
+    left: 440px; 
+    top: 398px; 
+    position: absolute; 
+    font-size: 45px; 
+    color: #8A8A8A; 
+    font-weight: bold; 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  }
+
+  .d2
+  {
+    width: 590px;
+     height: 120px; 
+     left: 290px; 
+     top: 516px; 
+     position: absolute; 
+     background: #2F2F2F; 
+     border-radius: 80px;
+  }
+
+  .d20
+  {
+    width: 590px; 
+    height: 120px; 
+    left: 350px; 
+    top: 544px; 
+    position: absolute; 
+    font-size: 60px; 
+    color: #8A8A8A;
+  }
+
+  .d200
+  {
+    width: 590px; 
+    height: 120px; 
+    left: 440px; 
+    top: 550px; 
+    position: absolute; 
+    font-size: 45px; 
+    color: #8A8A8A; 
+    font-weight: bold; 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  }
+
+  .d3
+  {
+    width: 700px; 
+    height: 120px; 
+    left: 290px; 
+    top: 668px; 
+    position: absolute; 
+    background: #2F2F2F; border-radius: 80px;
+  }
+
+  .d30
+  {
+    width: 700px; 
+    height: 120px; 
+    left: 350px; 
+    top: 695px; 
+    position: absolute; 
+    font-size: 60px; color: #8A8A8A;
+  }
+
+  .d300
+  {
+    width: 700px; 
+    height: 120px; 
+    left: 440px; 
+    top: 702px; 
+    position: absolute; 
+    font-size: 45px; 
+    color: #8A8A8A; 
+    font-weight: bold; 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  }
+
+  .d4
+  {
+    width: 650px; 
+    height: 120px; 
+    left: 290px; 
+    top: 820px; 
+    position: absolute; 
+    background: #2F2F2F; 
+    border-radius: 80px;
+  }
+
+  .d40
+  {
+    width: 650px; 
+    height: 120px; 
+    left: 350px; 
+    top: 845px; 
+    position: absolute; 
+    font-size: 60px; 
+    color: #8A8A8A;
+  }
+
+  .d400
+  {
+    width: 650px; 
+    height: 120px; 
+    left: 440px; 
+    top: 854px; 
+    position: absolute; 
+    font-size: 45px; 
+    color: #8A8A8A; 
+    font-weight: bold; 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  }
+
+  .d5
+  {
+    width: 550px; 
+    height: 120px; 
+    left: 290px; 
+    top: 972px; 
+    position: absolute; 
+    background: #2F2F2F; border-radius: 80px;
+  }
+
+  .d50
+  {
+    width: 550px; 
+    height: 120px; 
+    left: 350px; 
+    top: 1000px; 
+    position: absolute; 
+    font-size: 60px; color: #8A8A8A;
+  }
+
+  .d500
+  {
+    width: 550px; 
+    height: 120px; 
+    left: 440px; 
+    top: 1005px; 
+    position: absolute; 
+    font-size: 45px; 
+    color: #8A8A8A; font-weight: bold; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto;
+  }
+
+
+  .e1
+  {
+    width: 150px; 
+    height: 140px;
+     left: 3228px; 
+     top: 140px; 
+     position: absolute; 
+    background: #D9D9D9; 
+    border-radius: 100px;
+    gap: 10px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  background-image: url('youtube.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  }
+
+  .e2
+  {
+    width: 280px; 
+    height: 140px; 
+    left: 3388px; 
+    top: 140px; 
+    position: absolute; 
+    background: #D9D9D9; 
+    background: #D9D9D9; 
+    gap: 10px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  background-image: url('youtube\ logo\ 03.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  }
+
+.keytype
+{
+  border-radius: 20px;
+  
+}
+
+
+
+  .t1
+  {
+    width: 128px; 
+    height: 128px; 
+    left: 1556px; 
+    top: 364px; 
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t2
+  {
+    width: 128px; height: 128px; left: 1556px; top: 492px; 
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t3
+  {
+    width: 128px; height: 128px; left: 1556px; top: 620px;
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t4
+  {
+    width: 128px; height: 128px; left: 1556px; top: 748px; 
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t5
+  {
+    width: 128px; height: 128px; left: 1684px; top: 364px;
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t6
+  {
+    width: 128px; height: 128px; left: 1684px; top: 492px;
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t7
+  {
+    width: 128px; height: 128px; left: 1684px; top: 620px;
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+  
+  .t8
+  {
+    width: 128px; height: 128px; left: 1684px; top: 748px;
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t9
+  {
+    width: 128px; height: 128px; left: 1812px; top: 364px;
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t10
+{
+    width: 128px; height: 128px; left: 1812px; top: 492px;
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+  
+  .t11
+  {
+    width: 128px; height: 128px; left: 1812px; top: 620px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t12
+  {
+    width: 128px; height: 128px; left: 1812px; top: 748px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t13
+  {
+    width: 128px; height: 128px; left: 1940px; top: 364px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t14
+  {
+    width: 128px; height: 128px; left: 1940px; top: 492px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t15
+  {
+    width: 128px; height: 128px; left: 1940px; top: 620px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t16
+  {
+    width: 128px; height: 128px; left: 1940px; top: 748px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t17
+  {
+    width: 128px; height: 128px; left: 2068px; top: 364px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t18
+  {
+    width: 128px; height: 128px; left: 2068px; top: 492px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t19
+  {
+    width: 128px; height: 128px; left: 2068px; top: 620px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t20
+  {
+    width: 128px; height: 128px; left: 2068px; top: 748px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+  
+  .t21
+  {
+    width: 128px; height: 128px; left: 2196px; top: 364px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t22
+  {
+    width: 128px; height: 128px; left: 2196px; top: 492px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t23
+  {
+    width: 128px; height: 128px; left: 2196px; top: 620px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t24
+  {
+    width: 128px; height: 128px; left: 2196px; top: 748px;position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t25
+  {
+    width: 128px; height: 128px; left: 2324px; top: 364px; position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t26
+  {
+    width: 128px; height: 128px; left: 2324px; top: 492px; position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t27
+  {
+    width: 128px; height: 128px; left: 2324px; top: 620px; position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+  .t28
+  {
+    width: 128px; height: 128px; left: 2324px; top: 748px; position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+.f
+{
+    width: 280px; height: 112px; left: 1556px; top: 920px; position: absolute; 
+    background: #646464; 
+    border: 5px;
+    font-size: 40pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+.g
+{
+    width: 280px; height: 112px; left: 1872px; top: 920px; position: absolute; 
+    background: #646464; 
+    border: 5px;
+    font-size: 40pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+.h
+{
+    width: 332px; height: 112px; left: 2188px; top: 920px; position: absolute; 
+    background: #646464; 
+    border: 5px;
+    font-size: 40pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+.i1
+{
+    width: 156px; height: 112px; left: 2532px; top: 364px; position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 40pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    
+  background-color: #111;
+  background-image: url('backspace.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 80%;
+  }
+
+
+
+.j1
+{
+    width: 156px; height: 112px; left: 2532px; top: 498px; position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 50pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+.j2
+{
+    width: 132px; height: 52px; left: 2544px; top: 530px; position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 35pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    color: #acacac;
+  }
+
+.k1
+{
+    width: 156px; height: 112px; left: 2532px; top: 631px; position: absolute; 
+    background: #111; 
+    border: 5px;
+    font-size: 60pt;
+    text-align: center;
+    display: flex;
+    justify-content: center;   
+    align-items: center; 
+    border-radius: 10px;
+    
+  background-color: #111;
+  background-image: url('globe.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 70%;
+  }
+
+
+.l1
+{
+    width: 1028px; 
+    height: 52px; 
+    left: 1418px; 
+    top: 1781px; 
+    position: absolute;  
+  font-size: 40pt;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.l2
+{
+    width: 360px; 
+    height: 36px; 
+    left: 1418px; 
+    top: 1857px; 
+    position: absolute; 
+  font-size: 30pt;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.l3
+{
+    width: 540px; 
+    height: 36px; 
+    left: 1418px; 
+    top: 1917px; 
+    position: absolute; 
+  font-size: 25pt;
+  color: #aaa;
+}
+
+.l4
+{
+    width: 1056px; 
+    height: 596px; 
+    left: 1418px; 
+    top: 1165px; 
+    position: absolute; 
+    background: #111; 
+    border-radius: 20px;
+    border: 5px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  background-image: url('기본썸네일2.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+.l5
+{
+    width: 140px; 
+    height: 70px; 
+    left: 2310px; 
+    top: 1677px; 
+    position: absolute; 
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(17,17,17,0.7);
+  color: white; 
+  font-size: 30pt;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+
+.m1
+{
+    width: 1028px; 
+    height: 52px; 
+    left: 290px; 
+    top: 1781px; 
+    position: absolute; 
+  font-size: 40pt;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.m2
+{
+    width: 560px; 
+    height: 36px; 
+    left: 290px; 
+    top: 1857px; 
+    position: absolute; 
+  font-size: 30pt;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.m3
+{
+    width: 540px; 
+    height: 36px; 
+    left: 290px; 
+    top: 1917px; 
+    position: absolute; 
+  font-size: 25pt;
+  color: #aaa;
+}
+
+.m4
+{
+    width: 1056px; 
+    height: 596px; 
+    left: 290px; 
+    top: 1165px; 
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    border-radius: 20px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  background-image: url('기본썸네일1.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+}
+
+.m5
+{
+    width: 140px; 
+    height: 70px; 
+    left: 1182px; 
+    top: 1677px; 
+    position: absolute; 
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(17,17,17,0.7);
+  color: white; 
+  font-size: 30pt;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.n1
+{
+    width: 1028px; 
+    height: 52px; 
+    left: 2546px; 
+    top: 1781px; 
+    position: absolute; 
+  font-size: 40pt;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.n2
+{
+    width: 260px; 
+    height: 36px; 
+    left: 2546px; 
+    top: 1857px; 
+    position: absolute; 
+  font-size: 30pt;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.n3
+{
+    width: 540px; 
+    height: 36px; 
+    left: 2546px; 
+    top: 1917px; 
+    position: absolute; 
+  font-size: 25pt;
+  color: #aaa;
+}
+
+.n4
+{
+    width: 1056px; 
+    height: 596px; 
+    left: 2546px; 
+    top: 1165px; 
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    display: flex;
+    border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  background-image: url('기본썸네일3.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+.n5
+{
+    width: 140px; 
+    height: 70px; 
+    left: 3438px; 
+    top: 1677px; 
+    position: absolute; 
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(17,17,17,0.7);
+  color: white; 
+  font-size: 30pt;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.o1
+{
+    width: 1028px; 
+    height: 52px; 
+    left: 3674px; 
+    top: 1781px; 
+    position: absolute; 
+  font-size: 40pt;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.o2
+{
+    width: 560px; 
+    height: 36px; 
+    left: 3674px; 
+    top: 1857px; 
+    position: absolute; 
+  font-size: 30pt;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+
+.o3
+{
+    width: 540px; 
+    height: 36px; 
+    left: 3674px; 
+    top: 1917px; 
+    position: absolute; 
+  font-size: 25pt;
+  color: #aaa;
+}
+
+.o4
+{
+    width: 1056px; 
+    height: 596px; 
+    left: 3674px; 
+    top: 1165px; 
+    position: absolute; 
+    background: #111; 
+    border: 5px;
+    display: flex;
+    border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  background-image: url('기본썸네일4.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.o5
+{
+    width: 140px; 
+    height: 70px; 
+    left: 4566px; 
+    top: 1677px; 
+    position: absolute; 
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(17,17,17,0.7);
+  color: white; 
+  font-size: 30pt;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+
+.black
+{
+   width: 300px; height: 2030px; left: -30px; top: 397px; position: absolute; background: #111; border: 5px
+}
+
+.p1
+{
+    width: 130px; 
+    height: 130px; 
+    left: 100px; 
+    top: 397px; 
+    position: absolute; 
+    background: #111;
+}
+
+
+.p2
+{
+    width: 64px;
+     height: 64px;
+      left: 133px;
+       top: 430px;
+        position: absolute;
+         display: flex;
+          align-items: center;
+           justify-content: center;
+            font-size: 65px;
+}
+
+.q1
+{
+    width: 130px;
+     height: 130px;
+      left: 100px;
+       top: 557px;
+        position: absolute;
+         background: #111;
+}
+
+.q2
+{
+    width: 64px;
+    height: 64px;
+     left: 133px;
+      top: 590px;
+       position: absolute;
+        display: flex;
+         align-items: center;
+          justify-content: center;
+           font-size: 65px;
+}
+
+.r1
+{
+    width: 130px;
+     height: 130px;
+      left: 100px;
+       top: 717px;
+        position: absolute; 
+        background: #111; 
+}
+
+.r2
+{
+    width: 64px;
+     height: 64px;
+      left: 133px; 
+      top: 750px;
+       position: absolute;
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        font-size: 65px;
+}
+
+.s1
+{
+    width: 130px; 
+    height: 130px; 
+    left: 100px; 
+    top: 877px; 
+    position: absolute; 
+    background: #111;
+}
+
+
+.s2
+{
+    width: 64px; 
+    height: 64px; 
+    left: 133px; 
+    top: 910px; 
+    position: absolute; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 65px;
+}
+
+.u1
+{
+    width: 130px; 
+    height: 130px; 
+    left: 100px; 
+    top: 1037px; 
+    position: absolute; 
+    background: #111;
+}
+
+.u2
+{
+    width: 64px; 
+    height: 64px; 
+    left: 133px; 
+    top: 1070px; 
+    position: absolute; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 65px;
+}
+
+.v1
+{
+    width: 130px; 
+    height: 130px; 
+    left: 100px; 
+    top: 1197px; 
+    position: absolute; 
+    background: #111;
+}
+
+.v2
+{
+    width: 64px; 
+    height: 64px; 
+    left: 133px; 
+    top: 1230px; 
+    position: absolute; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 65px;
+}
+
+.w1
+{
+    width: 130px; 
+    height: 130px; 
+    left: 100px; 
+    top: 1357px; 
+    position: absolute; 
+    background: #111; 
+}
+
+.w2
+{
+    width: 64px; 
+    height: 64px; 
+    left: 133px; 
+    top: 1390px; 
+    position: absolute; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 65px;
+}
+
+.x1
+{
+    width: 130px; 
+    height: 130px; 
+    left: 100px; 
+    top: 1517px; 
+    position: absolute; 
+    background: #111;
+}
+
+.x2
+{
+    width: 64px; 
+    height: 64px; 
+    left: 133px; 
+    top: 1550px; 
+    position: absolute; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 65px;
+}
+
+.y1
+{
+    width: 130px; 
+    height: 130px; 
+    left: 100px; 
+    top: 1890px; 
+    position: absolute; 
+    background: #111;
+}
+
+.y2
+{
+    width: 64px; 
+    height: 64px; 
+    left: 133px; 
+    top: 1923px; 
+    position: absolute; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 65px;
+}
